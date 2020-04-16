@@ -3,6 +3,7 @@ package com.aps.game;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,6 +16,7 @@ import java.awt.Button;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 public class Game_Window extends JFrame {
 
@@ -24,6 +26,7 @@ public class Game_Window extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -34,7 +37,21 @@ public class Game_Window extends JFrame {
 				}
 			}
 		});
+		
+		
+		Banho banho = new Banho();
+		Teeth teeth = new Teeth();
+		Breakfast breakfast = new Breakfast();
+		Car car = new Car();
+		Subway subway = new Subway();
+		Uber uber = new Uber();
+		Faltar faltar = new Faltar();
+		
+		Choices day = new Choices(banho, teeth, breakfast, car, subway, uber, faltar);
+		
+			
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -49,18 +66,20 @@ public class Game_Window extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Button yes_button = new Button("Sim");
+		JButton yes_button = new JButton("Sim");
 		yes_button.setBounds(77, 203, 70, 22);
+		
 		contentPane.add(yes_button);
 		
-		Button no_button = new Button("N\u00E3o");
+		JButton no_button = new JButton("N\u00E3o");
 		no_button.setBounds(280, 203, 70, 22);
 		contentPane.add(no_button);
-		//"Your score: 1000\r\nO dia come\u00E7ou\r\nVoc\u00EA quer tomar um banho?\r\n1 - Sim    2 - N\u00E3o  "
-		JLabel GameText = new JLabel("<html>    Your score: 1000<br>\r\nO dia come\u00E7ou<br>\r\nVoc\u00EA quer tomar um banho?<br>\r\n1 - Sim    2 - N\u00E3o  </html>");
+		
+		JLabel GameText = new JLabel(Choices.outText);
+		GameText.setHorizontalAlignment(SwingConstants.CENTER);
 		GameText.setBorder(new LineBorder(new Color(0, 0, 0)));
 		GameText.setBackground(Color.GRAY);
-		GameText.setBounds(39, 36, 350, 139);
+		GameText.setBounds(41, 36, 348, 139);
 		contentPane.add(GameText);
 		
 		JLabel lblNewLabel_1 = new JLabel("Score:" + Score.getScore() );
