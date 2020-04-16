@@ -1,6 +1,5 @@
 package com.aps.game;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -8,18 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Panel;
-import java.awt.Button;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 
 public class Game_Window extends JFrame {
 
+	private static final long serialVersionUID = -7007275436864432833L;
 	private JPanel contentPane;
 
 	/**
@@ -51,6 +47,21 @@ public class Game_Window extends JFrame {
 		
 			
 	}
+	private static class yes_pressed implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			Choices.setChoice(1);
+	}
+}
+	static class no_pressed implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			Choices.setChoice(2);
+			
+			
+	}
+}
+	
 	
 
 	/**
@@ -68,12 +79,13 @@ public class Game_Window extends JFrame {
 		
 		JButton yes_button = new JButton("Sim");
 		yes_button.setBounds(77, 203, 70, 22);
-		
+		yes_button.addActionListener(new yes_pressed());
 		contentPane.add(yes_button);
 		
 		JButton no_button = new JButton("N\u00E3o");
 		no_button.setBounds(280, 203, 70, 22);
 		contentPane.add(no_button);
+		no_button.addActionListener(new no_pressed());
 		
 		JLabel GameText = new JLabel(Choices.outText);
 		GameText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -86,4 +98,14 @@ public class Game_Window extends JFrame {
 		lblNewLabel_1.setBounds(31, 11, 95, 14);
 		contentPane.add(lblNewLabel_1);
 	}
+	
+	
+//private ActionListener no_pressed() {
+//	Choices.setChoice(2);
+//	return null;
+//}
+//private ActionListener yes_pressed() {
+//	Choices.setChoice(1);
+//	return null;
+//}
 }
