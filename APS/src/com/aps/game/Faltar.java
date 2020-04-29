@@ -7,7 +7,6 @@ public class Faltar {
 		
 		//Métodos
 		protected void sim() {
-			System.out.println("Você escolheu não ir a faculdade");
 			this.setChosen(true);
 		}
 		

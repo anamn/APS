@@ -10,24 +10,26 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
+
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
 
 public class Game_Window extends JFrame {
+
 
 	private static final long serialVersionUID = -7007275436864432833L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Game_Window frame = new Game_Window();
-					frame.setVisible(true);
+					Game_Window Jframe = new Game_Window();
+					Jframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,23 +46,33 @@ public class Game_Window extends JFrame {
 		Faltar faltar = new Faltar();
 		
 		Choices day = new Choices(banho, teeth, breakfast, car, subway, uber, faltar);
+
 		
 			
 	}
-	private static class yes_pressed implements ActionListener{
+	
+//	Action Listeners dos botões
+	private class yes_pressed implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
 			Choices.setChoice(1);
+			System.out.println(Choices.getString());
+			
+			
 	}
 }
-	static class no_pressed implements ActionListener{
+	private class no_pressed implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
 			Choices.setChoice(2);
+			System.out.println(Choices.getString());
+		
 			
 			
+					
 	}
 }
+	
 	
 	
 
@@ -98,14 +110,4 @@ public class Game_Window extends JFrame {
 		lblNewLabel_1.setBounds(31, 11, 95, 14);
 		contentPane.add(lblNewLabel_1);
 	}
-	
-	
-//private ActionListener no_pressed() {
-//	Choices.setChoice(2);
-//	return null;
-//}
-//private ActionListener yes_pressed() {
-//	Choices.setChoice(1);
-//	return null;
-//}
 }

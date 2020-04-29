@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class Choices {
 	
 	protected static int choice;
-	protected static String outText= "<html><center>O dia começou<br>Você quer tomar um banho?</center></html>";
+	protected static String outText;
 	
 	
-	public int getChoice() {
+	public static int getChoice() {
 		return choice;
 	}
 	public static void setChoice(int value) {
@@ -17,13 +17,14 @@ public class Choices {
 	
 	public Choices(Banho banho, Teeth teeth, Breakfast breakfast, Car car, Subway subway, Uber uber, Faltar faltar) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Your score: " + Score.getScore() );
+		outText= "<html><center>O dia começou<br>Você quer tomar um banho?</center></html>";
+//		System.out.println("Your score: " + Score.getScore() );
 //		System.out.println("O dia começou");
 //		System.out.println("Você quer tomar um banho?");
 //		System.out.println("1 - Sim    2 - Não  ");
 		
-		choice = scanner.nextInt();
 		
+		choice = scanner.nextInt();
 		if(choice == 1) {banho.sim();}
 		else if(choice == 2) {banho.nao();}
 		
@@ -54,7 +55,7 @@ public class Choices {
 //			System.out.println("1 - Sim    2 - Não  ");
 			
 			outText = "<html><center>Você quer escovar os dentes de novo?<br>1 - Sim    2 - Não  </center></html>";
-			choice = scanner.nextInt();
+ 			choice = scanner.nextInt();
 			
 			if(choice == 1) {teeth.sim2();}
 			else if(choice == 2) {teeth.nao();}
@@ -101,7 +102,7 @@ public class Choices {
 		dayEnd();
 	}
 	public void dayEnd() {
-		outText="<html><center>Você terminou o dia com " + Score.getScore() + "pontos!</html></center>";
+		outText="<html><center>Você terminou o dia com " + Score.getScore() + " pontos!</html></center>";
 	}
 	
 	public static String getString() {
