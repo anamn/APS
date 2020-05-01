@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,33 +47,30 @@ public class Game_Window extends JFrame {
 		Uber uber = new Uber();
 		Faltar faltar = new Faltar();
 		
-		Choices day = new Choices(banho, teeth, breakfast, car, subway, uber, faltar);
 
 		
 			
 	}
 	
 //	Action Listeners dos botões
-	private class yes_pressed implements ActionListener{
-
-		public void actionPerformed(ActionEvent e) {
-			Choices.setChoice(1);
-			System.out.println(Choices.getString());
-			
-			
-	}
-}
-	private class no_pressed implements ActionListener{
-
-		public void actionPerformed(ActionEvent e) {
-			Choices.setChoice(2);
-			System.out.println(Choices.getString());
-		
-			
-			
-					
-	}
-}
+//	private class yes_pressed implements ActionListener{
+//
+//		public void actionPerformed(ActionEvent e) {
+//			Choices.setChoice(1);
+//			System.out.println(e.getActionCommand());	
+//			System.out.println(Choices.getString());
+//
+//			
+//	}
+//}
+//	private class no_pressed implements ActionListener{
+//
+//		public void actionPerformed(ActionEvent e) {
+//			Choices.setChoice(2);
+//			System.out.println(e.getActionCommand());
+//			System.out.println(Choices.getString());
+//	}
+//}
 	
 	
 	
@@ -91,13 +90,13 @@ public class Game_Window extends JFrame {
 		
 		JButton yes_button = new JButton("Sim");
 		yes_button.setBounds(77, 203, 70, 22);
-		yes_button.addActionListener(new yes_pressed());
+		yes_button.addActionListener(new Resposta());
 		contentPane.add(yes_button);
 		
 		JButton no_button = new JButton("N\u00E3o");
 		no_button.setBounds(280, 203, 70, 22);
+		no_button.addActionListener(new Resposta());
 		contentPane.add(no_button);
-		no_button.addActionListener(new no_pressed());
 		
 		JLabel GameText = new JLabel(Choices.outText);
 		GameText.setHorizontalAlignment(SwingConstants.CENTER);

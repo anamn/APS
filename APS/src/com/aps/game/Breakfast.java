@@ -4,6 +4,7 @@ public class Breakfast {
 	
 	//Variaveis
 	protected boolean chosen;
+	protected String outText;
 	
 		//Métodos
 		protected void sim() {
@@ -18,6 +19,9 @@ public class Breakfast {
 		
 		protected void setChosen(Boolean b) {
 			this.chosen = b;
+		}
+		protected void question() {
+			outText = "<html><center>Você quer tomar café da manhã?<br>1 - Sim    2 - Não  </center></html>";
 		}
 		
 

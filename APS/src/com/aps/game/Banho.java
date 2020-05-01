@@ -4,6 +4,7 @@ public class Banho {
 	
 	//Variaveis
 	protected boolean chosen;
+	protected String outText;
 	
 	//Métodos
 	protected void sim() {
@@ -15,11 +16,16 @@ public class Banho {
 	protected void nao() {
 		System.out.println("Você escolheu não tomar banho");
 		Score.scoreUp();
-		this.setChosen(false);
+		setChosen(false);
 	}
 	
 	protected void setChosen(Boolean b) {
 		this.chosen = b;
+	}
+	protected void question() {
+		outText= "<html><center>O dia começou<br>Você quer tomar um banho?</center></html>";
+
+
 	}
 	
 }

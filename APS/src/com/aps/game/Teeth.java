@@ -5,6 +5,7 @@ public class Teeth {
 	//Variaveis
 		protected boolean chosen;
 		protected short times = 0;
+		protected String outText;
 		
 		//Métodos
 		protected void sim() {
@@ -29,6 +30,14 @@ public class Teeth {
 		
 		protected short getTimes() {
 			return times;
+		}
+		protected void question() {
+			if(times==0) {
+				outText = "<html><center>Você quer escovar os dentes?<br>1 - Sim    2 - Não  </center></html>";
+			}
+			else if(times == 1) {
+				outText = "<html><center>Você quer escovar os dentes de novo?<br>1 - Sim    2 - Não  </center></html>";
+			}
 		}
 		
 }
