@@ -13,7 +13,6 @@ public class Choices {
 		resposta = resp;
 	}
 	
-	
 	public static int getChoice() {
 		return choice;
 	}
