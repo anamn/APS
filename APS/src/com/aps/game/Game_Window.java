@@ -20,16 +20,13 @@ public class Game_Window extends JFrame implements Runnable {
 	private static final long serialVersionUID = -7007275436864432833L;
 	private JPanel contentPane;
 	protected static String outText;
-	protected boolean noPressed = false;
-	protected boolean yesPressed = false;
+	protected boolean pressed = false;
 	protected String resposta;
 	JButton no_button = new JButton("Nao");
 	JButton yes_button = new JButton("Sim");
 	JLabel GameText = new JLabel(outText);
 	JLabel score = new JLabel("Score: " + Score.getScore());
 	JButton debugButton = new JButton("debug");
-	NoPressed no_pressed = new NoPressed();
-	YesPressed yes_pressed = new YesPressed();
 
 	public static void setText(String s) {
 		outText = s;
@@ -41,6 +38,7 @@ public class Game_Window extends JFrame implements Runnable {
 
 	// Define a aparencia da janela
 	public Game_Window() {
+		Main main = new Main();
 		setBackground(Color.LIGHT_GRAY);
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,8 +54,10 @@ public class Game_Window extends JFrame implements Runnable {
 		yes_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setResposta("Sim");
-				System.out.println(getResposta());
+				main.scanner.next("Sim");
 				GameText.setText(outText);
+				score.setText("Score: " + Score.getScore());
+				pressed = true;
 			}});
 
 		no_button.setName("Nao");
@@ -68,6 +68,8 @@ public class Game_Window extends JFrame implements Runnable {
 				setResposta("Nao");
 				System.out.println(getResposta());
 				GameText.setText(outText);
+				score.setText("Score: " + Score.getScore());
+				pressed = true;
 			}});
 
 		debugButton.setBounds(170, 203, 89, 23);
