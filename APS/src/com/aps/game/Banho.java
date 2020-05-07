@@ -7,27 +7,43 @@ public class Banho {
 	protected boolean pressed = false;
 
 	// Métodos
-	public void sim() {
+	protected void sim() {
 		System.out.println("Você escolheu tomar banho");
 		Score.scoreMinus();
 		this.setChosen(true);
 	}
 
-	public void nao() {
+	protected void nao() {
 		System.out.println("Você escolheu não tomar banho");
 		Score.scoreUp();
 		setChosen(false);
 	}
 
-	public void setChosen(Boolean b) {
+	protected void setChosen(Boolean b) {
 		this.chosen = b;
 	}
 
-	public void setPressed(Boolean b) {
+	protected void setPressed(Boolean b) {
 		this.setPressed(b);
 	}
 
-	public void question() {
-		Game_Window.setText("<html><center>O dia começou<br>Você quer tomar um banho?</center></html>");	
+	protected void question() {
+		Game_Window game = new Game_Window();
+		
+		Game_Window.setText("<html><center>O dia começou<br>Você quer tomar um banho?</center></html>");
+		while(game.outText == "\"<html><center>O dia começou<br>Você quer tomar um banho?</center></html>\"") {
+			if(game.yes_button.getModel().isPressed()) {
+				sim();
+			}else if(game.no_button.getModel().isPressed()) {
+				nao();
+			}
+		}//Falta criar os loop's que vão esperar o input 
+		
+		
+		
+		
 	}
+
 }
+
+
